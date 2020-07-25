@@ -1,0 +1,36 @@
+{
+  "name": "vitrine-tribal-api",
+  "version": "1.0.0",
+  "description": "Site for Vitrine Tribal, managing classes of Tribal Fusion dance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanzanon/vitrine-tribal-api.git"
+  },
+  "author": "Ivan Zanon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanzanon/vitrine-tribal-api/issues"
+  },
+  "homepage": "https://github.com/ivanzanon/vitrine-tribal-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.15.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.3.0",
+    "pg-hstore": "^2.3.3",
+    "require-dir": "^1.2.0",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
