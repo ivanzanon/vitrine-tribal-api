@@ -1,5 +1,6 @@
 import sequelize from 'sequelize';
-import envConfigs from './config';
+
+import envConfigs from './config/config.js';
 
 const env = process.env.NODE_ENV || 'development';
 const config = envConfigs[env];

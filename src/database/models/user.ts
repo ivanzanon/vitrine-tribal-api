@@ -10,9 +10,9 @@ export interface UserAttributes {
   level: string;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+// interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-class User extends Model<UserAttributes, UserCreationAttributes> {
+class User extends Model implements UserAttributes {
   id: number;
 
   username: string;

@@ -5,8 +5,9 @@
  * @description Main server class
  *
  */
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
+
 import routes from './routes';
 
 // Iniciando App

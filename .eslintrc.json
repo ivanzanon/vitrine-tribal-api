@@ -36,16 +36,16 @@
         "import-helpers/order-imports": [
             "warn",
             {
-              "newlinesBetween": "always", // new line between groups
-              "groups": [
+                "newlinesBetween": "always", // new line between groups
+                "groups": [
                 "module",
                 "/^@server\/shared/",
                 "/^@/",
                 ["parent", "sibling", "index"]
-              ],
-              "alphabetize": { "order": "asc", "ignoreCase": true }
+                ],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
             }
-          ]
+        ]
     },
     "settings": {
         "import/resolver": {

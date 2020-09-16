@@ -1,22 +1,16 @@
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt, { Secret } from 'jsonwebtoken';
 
 import User, { UserAttributes } from '../database/models/user';
 
-require('dotenv').config();
-
-interface UserData {
-    id: number;
-    password: string;
-    username: string;
-}
+dotenv.config();
 
 export default class UserController {
-  async index(response:Response) {
+  async index(request:Request, response:Response) {
     try {
       const users = await User.findAll();
-
       return response.json(users);
     } catch (error) {
       return response.status(500).send({ message: error.message });
@@ -138,7 +132,7 @@ export default class UserController {
      */
   async login(req:Request, res:Response) {
     interface LoginParameters {
-        username: string;
+        username: string
         password: string;
     }
 

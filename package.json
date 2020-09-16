@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "start": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
   },
   "repository": {
     "type": "git",

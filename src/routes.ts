@@ -7,12 +7,17 @@
  */
 
 import express from 'express';
-import AuthorizationManager from './jwt/AuthorizationManager';
+
+import CourseController from './controller/CourseController';
+import TeacherController from './controller/TeacherController';
 import UserController from './controller/UserController';
+import AuthorizationManager from './jwt/AuthorizationManager';
 
 const routes = express.Router();
 const authorizationManager = new AuthorizationManager();
 const userController = new UserController();
+const teacherController = new TeacherController();
+const courseController = new CourseController();
 
 routes.get('/users', userController.index);
 routes.get('/users/:id', authorizationManager.verifyJWT, userController.show);
@@ -21,5 +26,12 @@ routes.put('/users/:id', userController.update);
 routes.delete('/users/:id', userController.destroy);
 routes.post('/login', userController.login);
 routes.post('/userExists', userController.userExists);
+
+routes.get('/teachers', teacherController.index);
+routes.post('/teachers', teacherController.store);
+
+routes.get('/courses', courseController.index);
+routes.post('/courses', courseController.store);
+routes.get('/coursesOfTeacher/:id', courseController.getClassesOfTeacher);
 
 export default routes;

@@ -1,21 +1,8 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config();
 
-export interface ConfigType {
-    dialect: string;
-    host: string;
-    username: string;
-    password: string;
-    database: string;
-    port:
-    string;
-    define: {
-      timestamps: boolean;
-    };
-}
-
-const config = {
+module.exports = {
   development: {
     // url: process.env.DEV_DATABASE_URL,
     dialect: 'postgres',
@@ -48,5 +35,3 @@ const config = {
   //   dialect: 'postgres',
   // },
 };
-
-export default config;
