@@ -1,4 +1,4 @@
-import { Model, DataTypes, Optional } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 import database from '..';
 
@@ -16,11 +16,18 @@ export interface CourseAttributes {
         inscriptionUrl: string;
         classUrl: string;
         teacher: number;
+        Teacher: {
+          User: {
+              fullname: string;
+          }
+        }
       }
 
 // interface CourseCreationAttributes extends Optional<CourseAttributes, 'id'> {}
 
 class Course extends Model implements CourseAttributes {
+        Teacher: { User: { fullname: string; }; };
+
         id:number;
 
         title: string;

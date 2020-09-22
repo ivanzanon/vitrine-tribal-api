@@ -32,6 +32,7 @@ routes.post('/teachers', teacherController.store);
 
 routes.get('/courses', courseController.index);
 routes.post('/courses', courseController.store);
+routes.delete('/courses/:id', courseController.delete);
 routes.get('/coursesOfTeacher/:id', courseController.getClassesOfTeacher);
 
 export default routes;
