@@ -19,6 +19,18 @@ const userController = new UserController();
 const teacherController = new TeacherController();
 const courseController = new CourseController();
 
+/**
+ * @swagger
+ *
+ * /users:
+ *  get:
+ *      description: Use to get a list of all Users
+ *      produces:
+ *          - application/json
+ *      responses:
+ *          200:
+ *              description: Successsfulllll
+ */
 routes.get('/users', userController.index);
 routes.get('/users/:id', authorizationManager.verifyJWT, userController.show);
 routes.post('/users', userController.store);

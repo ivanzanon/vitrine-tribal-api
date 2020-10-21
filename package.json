@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ivanzanon/vitrine-tribal-api#readme",
   "dependencies": {
+    "@types/swagger-jsdoc": "^3.0.2",
+    "@types/swagger-ui-express": "^4.1.2",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "date-fns": "^2.15.0",
@@ -29,7 +31,9 @@
     "require-dir": "^1.2.0",
     "sequelize": "^6.3.3",
     "sequelize-cli": "^6.2.0",
-    "sequelize-typescript": "^1.1.0"
+    "sequelize-typescript": "^1.1.0",
+    "swagger-jsdoc": "^4.3.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
