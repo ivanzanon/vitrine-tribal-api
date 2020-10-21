@@ -29,9 +29,27 @@ const courseController = new CourseController();
  *          - application/json
  *      responses:
  *          200:
- *              description: Successsfulllll
+ *              description: Success
  */
 routes.get('/users', userController.index);
+
+/**
+ * @swagger
+ *
+ * /users/:id:
+ *  get:
+ *      description: Use to informations about one user
+ *      produces:
+ *          - application/json
+ *      parameters:
+ *          - name: id
+ *            description: ID of the user
+ *            required: true
+ *            in: path
+ *      responses:
+ *          200:
+ *              description: Success
+ */
 routes.get('/users/:id', authorizationManager.verifyJWT, userController.show);
 routes.post('/users', userController.store);
 routes.put('/users/:id', userController.update);
