@@ -1,0 +1,26 @@
+GET http://localhost:3002/courses
+# Used to recover all the courses on the database
+
+###
+
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+    "title": "Preparação dos braços e articulações para movimentos bruscos e suaves",
+    "teacher": "5",
+    "price": "400",
+    "location": "Location da Aula",
+    "dateStart": "01/01/2020",
+    "dateEnd": "01/01/2020",
+    "hourStart": "08:00",
+    "hourEnd": "12:00",
+    "interval": "Sábados e Domingos",
+    "description": "Utilizando sua vasta experiência em Dança do Ventre, Nadja propõe workshop técnico em movimentação de quadril para Tribal Fusion baseado em técnicas “baladi” egípcias.",
+    "inscriptionUrl": "www.youtube.com",
+    "classUrl": "www.youtube.com"
+}
+
+###
+
+GET http://localhost:3002/coursesOfTeacher/4
