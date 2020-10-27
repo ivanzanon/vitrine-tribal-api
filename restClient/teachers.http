@@ -1,0 +1,15 @@
+GET http://localhost:3002/teachers
+
+###
+
+POST http://localhost:3002/teachers
+Content-Type: application/json
+
+    {
+    "bio": "Outra Bio da Raisa Latorraca",
+    "user": 4
+    }
+
+###
+
+GET http://localhost:3002/teachers/4/courses
