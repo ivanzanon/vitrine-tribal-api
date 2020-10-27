@@ -58,11 +58,11 @@ routes.post('/login', userController.login);
 routes.post('/userExists', userController.userExists);
 
 routes.get('/teachers', teacherController.index);
+routes.get('/teachers/:id/courses', teacherController.getClassesOfTeacher);
 routes.post('/teachers', teacherController.store);
 
 routes.get('/courses', courseController.index);
 routes.post('/courses', courseController.store);
 routes.delete('/courses/:id', courseController.delete);
-routes.get('/coursesOfTeacher/:id', courseController.getClassesOfTeacher);
 
 export default routes;

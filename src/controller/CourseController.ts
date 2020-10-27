@@ -42,51 +42,6 @@ export default class CourseController {
     }
   }
 
-  async getClassesOfTeacher(request:Request, response:Response) {
-    try {
-      const { id } = request.params;
-
-      const data = await Course.findAll({
-
-        where: { '$Teacher.User.id$': id },
-
-        include: {
-          model: Teacher,
-          as: 'Teacher',
-          attributes: ['id'],
-
-          include: [{
-            model: User,
-            as: 'User',
-            attributes: ['fullname'],
-          }],
-
-        },
-
-      });
-
-      const courses = data.map((course) => (
-        {
-          id: course.id,
-          title: course.title,
-          teacher: course.Teacher.User.fullname,
-          description: course.description,
-          price: course.price,
-          dateStart: course.dateStart,
-          dateEnd: course.dateEnd,
-          hourStart: course.hourStart,
-          hourEnd: course.hourEnd,
-          interval: course.interval,
-          inscriptionUrl: course.inscriptionUrl,
-        }));
-
-      return response.json(courses);
-    } catch (error) {
-      console.log(error);
-      return response.sendStatus(500).send({ message: error.message });
-    }
-  }
-
   async store(request:Request, response:Response) {
     const data:CourseAttributes = request.body;
 
