@@ -22,5 +22,3 @@ Content-Type: application/json
 }
 
 ###
-
-GET http://localhost:3002/teachers/4/courses

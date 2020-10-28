@@ -5,6 +5,10 @@ import Teacher, { TeacherAttributes } from '../database/models/teacher';
 import User from '../database/models/user';
 
 export default class TeacherController {
+  sum(number1:number, number2:number) {
+    return number1 + number2;
+  }
+
   async index(request:Request, response:Response) {
     try {
       const teachers = await Teacher.findAll();
