@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "extends": [
         "airbnb-base"
@@ -13,7 +14,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "eslint-plugin-import-helpers"
+        "eslint-plugin-import-helpers",
+        "mocha"
     ],
     "rules": {
         "linebreak-style":"off",
@@ -26,6 +28,8 @@
         "import/prefer-default-export": "off",
         "@typescript-eslint/explicit-function-return-type": ["off"],
         "class-methods-use-this": "off",
+        "mocha/no-skipped-tests": "error",
+        "mocha/no-exclusive-tests": "error",
         "import/extensions": [
             "error",
             "ignorePackages",
@@ -52,6 +56,10 @@
             "typescript": {
                 "directory": "packages/server/*/tsconfig.json"
             }
-        }
+        },
+        "mocha/additionalCustomNames": [
+            { "name": "describeModule", "type": "suite", "interfaces": [ "BDD" ] },
+            { "name": "testModule", "type": "testCase", "interfaces": [ "TDD" ] }
+        ]
     }
 }
