@@ -1,19 +1,12 @@
-/**
- *
- * @author Ivan Zanon
- *
- * @description Routes for api access
- *
- */
-
-import express from 'express';
+import { Router } from 'express';
 
 import CourseController from './controller/CourseController';
 import TeacherController from './controller/TeacherController';
 import UserController from './controller/UserController';
 import AuthorizationManager from './jwt/AuthorizationManager';
+import { createCourseController } from './useCases/CreateCourse';
 
-const routes = express.Router();
+const routes = Router();
 const authorizationManager = new AuthorizationManager();
 const userController = new UserController();
 const teacherController = new TeacherController();
@@ -62,7 +55,7 @@ routes.get('/teachers/:id/courses', teacherController.getClassesOfTeacher);
 routes.post('/teachers', teacherController.store);
 
 routes.get('/courses', courseController.index);
-routes.post('/courses', courseController.store);
+routes.post('/courses', (request, response) => createCourseController.handle(request, response));
 routes.delete('/courses/:id', courseController.delete);
 
 export default routes;

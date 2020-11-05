@@ -7,7 +7,7 @@ POST http://localhost:3002/courses
 Content-Type: application/json
 
 {
-    "title": "Preparação dos braços e articulações para movimentos bruscos e suaves",
+    "title": "Tetei",
     "teacher": "5",
     "price": "400",
     "location": "Location da Aula",

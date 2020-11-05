@@ -3,14 +3,14 @@ import dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt, { Secret } from 'jsonwebtoken';
 
-import User, { UserAttributes } from '../database/models/user';
+import { Users, UsersAttributes } from '../database/models/Users';
 
 dotenv.config();
 
 export default class UserController {
   async index(request:Request, response:Response) {
     try {
-      const users = await User.findAll();
+      const users = await Users.findAll();
       return response.json(users);
     } catch (error) {
       return response.status(500).send({ message: error.message });
@@ -26,7 +26,7 @@ export default class UserController {
      */
   async show(req:Request, res:Response) {
     try {
-      const user = await User.findByPk(req.params.id,
+      const user = await Users.findByPk(req.params.id,
         {
           attributes: ['fullname', 'username'],
         });
@@ -45,13 +45,13 @@ export default class UserController {
      * @return JSon with the stored User
      */
   async store(req:Request, res:Response) {
-    const data:UserAttributes = req.body;
+    const data:UsersAttributes = req.body;
 
     try {
       // encrypting password
       const HashedPassword = await bcrypt.hash(data.password, 10);
 
-      const user = await User.create(
+      const user = await Users.create(
         {
           username: data.username,
           fullname: data.fullname,
@@ -74,7 +74,7 @@ export default class UserController {
      * @return JSon with the new informations of User
      */
   async update(req:Request, res:Response) {
-    const user = await User.update(req.body,
+    const user = await Users.update(req.body,
       {
         where:
               {
@@ -90,7 +90,7 @@ export default class UserController {
      * @description Destroy an existing User in the Database. Expects the id of the User
      */
   async destroy(req:Request, res:Response) {
-    await User.destroy(
+    await Users.destroy(
       {
         where:
                {
@@ -113,7 +113,7 @@ export default class UserController {
   async userExists(req:Request, res:Response) {
     const userInfo = req.body;
 
-    const user = await User.findOne(
+    const user = await Users.findOne(
       {
         where: {
           username: userInfo.username,
@@ -138,7 +138,7 @@ export default class UserController {
 
     const userInfo:LoginParameters = req.body;
 
-    const user:User = await User.findOne(
+    const user:Users = await Users.findOne(
       {
         where: {
           username: userInfo.username,

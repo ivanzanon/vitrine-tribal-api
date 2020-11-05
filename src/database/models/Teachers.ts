@@ -1,11 +1,11 @@
-import { Model, DataTypes, Optional } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 import database from '..';
 
-import Course from './course';
-import User from './user';
+import { Courses } from './Courses';
+import { Users } from './Users';
 
-export interface TeacherAttributes {
+export interface TeachersAttributes {
   id: number;
   bio: string;
   user: number;
@@ -13,7 +13,7 @@ export interface TeacherAttributes {
 
 // interface TeacherCreationAttributes extends Optional<TeacherAttributes, 'id'> {}
 
-class Teacher extends Model implements TeacherAttributes {
+export class Teachers extends Model implements TeachersAttributes {
   id: number;
 
   bio:string;
@@ -21,7 +21,7 @@ class Teacher extends Model implements TeacherAttributes {
   user: number;
 }
 
-Teacher.init({
+Teachers.init({
   id: {
     type: DataTypes.NUMBER,
     autoIncrement: true,
@@ -34,22 +34,20 @@ Teacher.init({
   modelName: 'Teacher',
 });
 
-User.hasOne(Teacher, {
+Users.hasOne(Teachers, {
   foreignKey: 'user',
 });
 
-Teacher.belongsTo(User, {
+Teachers.belongsTo(Users, {
   foreignKey: 'user',
 });
 
-Teacher.hasMany(Course, {
+Teachers.hasMany(Courses, {
   foreignKey: 'teacher',
   sourceKey: 'id',
 });
 
-Course.belongsTo(Teacher, {
+Courses.belongsTo(Teachers, {
   foreignKey: 'teacher',
   targetKey: 'id',
 });
-
-export default Teacher;

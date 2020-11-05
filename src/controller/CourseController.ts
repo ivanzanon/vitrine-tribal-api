@@ -1,20 +1,20 @@
 import { Request, Response } from 'express';
 
-import Course, { CourseAttributes } from '../database/models/course';
-import Teacher from '../database/models/teacher';
-import User from '../database/models/user';
+import { Courses, CoursesAttributes } from '../database/models/Courses';
+import { Teachers } from '../database/models/Teachers';
+import { Users } from '../database/models/Users';
 
 export default class CourseController {
   async index(request:Request, response:Response) {
     try {
-      const data = await Course.findAll({
+      const data = await Courses.findAll({
         include: {
-          model: Teacher,
+          model: Teachers,
           as: 'Teacher',
           attributes: ['id'],
 
           include: [{
-            model: User,
+            model: Users,
             as: 'User',
             attributes: ['fullname'],
           }],
@@ -43,10 +43,10 @@ export default class CourseController {
   }
 
   async store(request:Request, response:Response) {
-    const data:CourseAttributes = request.body;
+    const data:CoursesAttributes = request.body;
 
     try {
-      const courses = await Course.create(
+      const courses = await Courses.create(
         {
           title: data.title,
           teacher: data.teacher,
@@ -73,7 +73,7 @@ export default class CourseController {
     const { id } = request.params;
 
     try {
-      const data = await Course.destroy({
+      const data = await Courses.destroy({
         where: { id },
       });
 

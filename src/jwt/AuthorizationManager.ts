@@ -1,24 +1,7 @@
-/**
- *
- * @author Ivan Zanon
- *
- * @description Manager for JWT Authorization
- *
- */
-
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 export default class AuthorizationManager {
-  /**
-     * @description Verifies if the token on the requisition ins valid
-     *              and folow to [next] route
-     *
-     * @param req
-     * @param res
-     * @param next
-     */
-
   verifyJWT(req:Request, res:Response, next:NextFunction) {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];

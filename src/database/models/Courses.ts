@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 
 import database from '..';
 
-export interface CourseAttributes {
+export interface CoursesAttributes {
         id: number;
         title: string;
         description: string;
@@ -25,7 +25,7 @@ export interface CourseAttributes {
 
 // interface CourseCreationAttributes extends Optional<CourseAttributes, 'id'> {}
 
-class Course extends Model implements CourseAttributes {
+export class Courses extends Model implements CoursesAttributes {
         Teacher: { User: { fullname: string; }; };
 
         id:number;
@@ -55,7 +55,7 @@ class Course extends Model implements CourseAttributes {
         teacher: number;
 }
 
-Course.init({
+Courses.init({
   id: {
     type: DataTypes.NUMBER,
     autoIncrement: true,
@@ -77,5 +77,3 @@ Course.init({
   sequelize: database.connection,
   modelName: 'Course',
 });
-
-export default Course;

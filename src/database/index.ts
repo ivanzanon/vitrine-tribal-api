@@ -10,8 +10,6 @@ class Database {
 
   constructor() {
     console.log('Carregando configurações');
-    console.log(env);
-    console.log(config);
     this.connection = new sequelize.Sequelize(config);
   }
 }

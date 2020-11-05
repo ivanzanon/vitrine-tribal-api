@@ -1,8 +1,8 @@
-import { Model, DataTypes, Optional } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 import database from '..';
 
-export interface UserAttributes {
+export interface UsersAttributes {
   id: number;
   username: string;
   fullname: string;
@@ -12,7 +12,7 @@ export interface UserAttributes {
 
 // interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-class User extends Model implements UserAttributes {
+export class Users extends Model implements UsersAttributes {
   id: number;
 
   username: string;
@@ -24,7 +24,7 @@ class User extends Model implements UserAttributes {
   level: string;
 }
 
-User.init({
+Users.init({
   id: {
     type: DataTypes.NUMBER,
     autoIncrement: true,
@@ -38,5 +38,3 @@ User.init({
   sequelize: database.connection,
   modelName: 'User',
 });
-
-export default User;
