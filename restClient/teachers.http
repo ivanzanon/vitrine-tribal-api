@@ -6,10 +6,10 @@ POST http://localhost:3002/teachers
 Content-Type: application/json
 
     {
-    "bio": "Outra Bio da Raisa Latorraca",
-    "user": 4
+    "bio": "Raisa Latorraca, com certeza você já ouviu falar dela, mesmo que nunca tenha procurado aulas de dança.",
+    "user": 3
     }
 
 ###
 
-GET http://localhost:3002/teachers/3/courses
+GET http://localhost:3002/teachers/2/courses

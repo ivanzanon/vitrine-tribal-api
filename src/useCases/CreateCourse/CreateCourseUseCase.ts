@@ -1,8 +1,6 @@
-import { privateEncrypt } from 'crypto';
-
 import { Course } from '../../entities/Course';
 import { ICourseRepository } from '../../repositories/ICourseRepository';
-import { ICreateCourseRequestDTO } from './CreateUserDTO';
+import { ICreateCourseRequestDTO } from './CreateCourseDTO';
 
 export class CreateCourseUseCase {
     private courseRepository: ICourseRepository
@@ -17,7 +15,7 @@ export class CreateCourseUseCase {
       const course = new Course({
         id: '',
         title: data.title,
-        Teacher: { id: data.teacher, name: '' },
+        Teacher: { id: data.teacher.id, name: '' },
         dateEnd: data.dateEnd,
         dateStart: data.dateStart,
         description: data.description,

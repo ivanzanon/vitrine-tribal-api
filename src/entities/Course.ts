@@ -1,10 +1,10 @@
 export class Course {
-    public readonly id: string;
+    public readonly id: number;
 
     public title: string;
 
     public Teacher: {
-      id: string;
+      id: number;
       name: string;
     };
 
@@ -26,7 +26,7 @@ export class Course {
 
     public inscriptionUrl: string;
 
-    constructor(props: {id: string;
+    constructor(props: {id: number;
       title: string;
       Teacher: {
         id: string;
@@ -53,7 +53,7 @@ export class Course {
       this.validateHour(hourStart, hourEnd);
     }
 
-    private validateDescription(description:string) {
+    private validateDescription(description: string) {
       return description;
     }
 
@@ -61,7 +61,7 @@ export class Course {
       return { dateStart, dateEnd };
     }
 
-    private validateHour(hourStart, hourEnd) {
+    private validateHour(hourStart: number, hourEnd: number) {
       return { hourStart, hourEnd };
     }
 }

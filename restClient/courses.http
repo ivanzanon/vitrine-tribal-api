@@ -4,15 +4,16 @@ GET http://localhost:3002/courses
 ###
 
 POST http://localhost:3002/courses
+# Used to sore a Course on the database
 Content-Type: application/json
 
 {
-    "title": "Tetei",
-    "teacher": "5",
+    "title": "Aula da Raissa 01",
+    "teacher": "3",
     "price": "400",
     "location": "Location da Aula",
-    "dateStart": "01/01/2020",
-    "dateEnd": "01/01/2020",
+    "dateStart": "2020-01-01",
+    "dateEnd": "2020-01-01",
     "hourStart": "08:00",
     "hourEnd": "12:00",
     "interval": "Sábados e Domingos",

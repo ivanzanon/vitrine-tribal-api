@@ -7,10 +7,10 @@ export interface CoursesAttributes {
         title: string;
         description: string;
         location: string;
-        dateStart: string;
-        dateEnd: string;
-        hourStart: string;
-        hourEnd: string;
+        dateStart: number;
+        dateEnd: number;
+        hourStart: number;
+        hourEnd: number;
         interval: string;
         price: number;
         inscriptionUrl: string;
@@ -36,13 +36,13 @@ export class Courses extends Model implements CoursesAttributes {
 
         location: string;
 
-        dateStart: string;
+        dateStart: number;
 
-        dateEnd: string;
+        dateEnd: number;
 
-        hourStart: string;
+        hourStart: number;
 
-        hourEnd: string;
+        hourEnd: number;
 
         interval: string;
 
@@ -64,10 +64,10 @@ Courses.init({
   title: DataTypes.STRING,
   description: DataTypes.STRING,
   location: DataTypes.STRING,
-  dateStart: DataTypes.STRING,
-  dateEnd: DataTypes.STRING,
-  hourStart: DataTypes.STRING,
-  hourEnd: DataTypes.STRING,
+  dateStart: DataTypes.INTEGER,
+  dateEnd: DataTypes.INTEGER,
+  hourStart: DataTypes.INTEGER,
+  hourEnd: DataTypes.INTEGER,
   interval: DataTypes.STRING,
   price: DataTypes.NUMBER,
   inscriptionUrl: DataTypes.STRING,

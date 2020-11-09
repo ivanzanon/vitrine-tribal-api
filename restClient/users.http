@@ -2,7 +2,7 @@ GET http://localhost:3002/users
 
 ###
 
-GET http://localhost:3002/users/4
+GET http://localhost:3002/users/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjAzMzIwNjMyfQ.wh6ootzIFDylZgP6W87d3M14y9UfYIZ4JKApz1OTCqU
 id: 3
 
@@ -25,8 +25,8 @@ POST http://localhost:3002/login
 Content-Type: application/json
 
     {
-        "username":"julia.gunesh",
-        "password":"juliagunesh"
+        "username":"ivan.zanon",
+        "password":"ivanzanon"
     }
 
 ###
