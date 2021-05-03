@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 
-import Course from '../database/models/course';
-import Teacher, { TeacherAttributes } from '../database/models/teacher';
-import User from '../database/models/user';
+import { Courses } from '../database/models/Courses';
+import { Teachers, TeachersAttributes } from '../database/models/Teachers';
+import { Users } from '../database/models/Users';
 
 export default class TeacherController {
   sum(number1:number, number2:number) {
@@ -11,7 +11,7 @@ export default class TeacherController {
 
   async index(request:Request, response:Response) {
     try {
-      const teachers = await Teacher.findAll();
+      const teachers = await Teachers.findAll();
       return response.json(teachers);
     } catch (error) {
       return response.sendStatus(500).send({ message: error.message });
@@ -19,10 +19,10 @@ export default class TeacherController {
   }
 
   async store(request:Request, response:Response) {
-    const data:TeacherAttributes = request.body;
+    const data:TeachersAttributes = request.body;
 
     try {
-      const teachers = await Teacher.create(
+      const teachers = await Teachers.create(
         {
           bio: data.bio,
           user: data.user,
@@ -37,7 +37,7 @@ export default class TeacherController {
 
   async show(request:Request, response:Response) {
     try {
-      const teachers = await Teacher.findAll();
+      const teachers = await Teachers.findAll();
       return response.json(teachers);
     } catch (error) {
       return response.sendStatus(500).send({ message: error.message });
@@ -48,17 +48,17 @@ export default class TeacherController {
     try {
       const { id } = request.params;
 
-      const data = await Course.findAll({
+      const data = await Courses.findAll({
 
         where: { '$Teacher.User.id$': id },
 
         include: {
-          model: Teacher,
+          model: Teachers,
           as: 'Teacher',
           attributes: ['id'],
 
           include: [{
-            model: User,
+            model: Users,
             as: 'User',
             attributes: ['fullname'],
           }],

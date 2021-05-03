@@ -2,15 +2,15 @@ import { Model, DataTypes } from 'sequelize';
 
 import database from '..';
 
-export interface CourseAttributes {
+export interface CoursesAttributes {
         id: number;
         title: string;
         description: string;
         location: string;
-        dateStart: string;
-        dateEnd: string;
-        hourStart: string;
-        hourEnd: string;
+        dateStart: number;
+        dateEnd: number;
+        hourStart: number;
+        hourEnd: number;
         interval: string;
         price: number;
         inscriptionUrl: string;
@@ -25,7 +25,7 @@ export interface CourseAttributes {
 
 // interface CourseCreationAttributes extends Optional<CourseAttributes, 'id'> {}
 
-class Course extends Model implements CourseAttributes {
+export class Courses extends Model implements CoursesAttributes {
         Teacher: { User: { fullname: string; }; };
 
         id:number;
@@ -36,13 +36,13 @@ class Course extends Model implements CourseAttributes {
 
         location: string;
 
-        dateStart: string;
+        dateStart: number;
 
-        dateEnd: string;
+        dateEnd: number;
 
-        hourStart: string;
+        hourStart: number;
 
-        hourEnd: string;
+        hourEnd: number;
 
         interval: string;
 
@@ -55,7 +55,7 @@ class Course extends Model implements CourseAttributes {
         teacher: number;
 }
 
-Course.init({
+Courses.init({
   id: {
     type: DataTypes.NUMBER,
     autoIncrement: true,
@@ -64,10 +64,10 @@ Course.init({
   title: DataTypes.STRING,
   description: DataTypes.STRING,
   location: DataTypes.STRING,
-  dateStart: DataTypes.STRING,
-  dateEnd: DataTypes.STRING,
-  hourStart: DataTypes.STRING,
-  hourEnd: DataTypes.STRING,
+  dateStart: DataTypes.INTEGER,
+  dateEnd: DataTypes.INTEGER,
+  hourStart: DataTypes.INTEGER,
+  hourEnd: DataTypes.INTEGER,
   interval: DataTypes.STRING,
   price: DataTypes.NUMBER,
   inscriptionUrl: DataTypes.STRING,
@@ -77,5 +77,3 @@ Course.init({
   sequelize: database.connection,
   modelName: 'Course',
 });
-
-export default Course;
